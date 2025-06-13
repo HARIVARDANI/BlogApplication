@@ -1,0 +1,101 @@
+<div class="container mt-4">
+  <div *ngIf="blog" class="card blog-details p-4 shadow">
+    <h1 class="text-center mb-4">{{ blog.title }}</h1>
+
+    <div class="close-icon-container">
+      <span class="material-icons" (click)="goBack()">close</span>
+    </div>  
+ 
+    <div id="blogCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div
+          *ngFor="let image of blog.imageURLs; let i = index"
+          class="carousel-item"
+          [class.active]="i == 0"
+        >
+          <img
+            [src]="image"
+            class="d-block w-100 blog-image"
+            alt="Blog Image"
+          />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#blogCarousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#blogCarousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+ 
+
+    <p class="text-muted text-center">
+      Published on {{ blog.publicationDate | date }}
+    </p>
+    <p class="blog-description mt-4">{{ blog.content }}</p>
+ 
+   
+    <!-- <button
+      class="btn btn-primary back-button"
+      (click)="goBack()"
+    >
+      Back to Blogs
+    </button>
+  </div> -->
+
+  <div class="blog-interactions mt-4">
+    <button class="btn btn-success me-2" (click)="likeBlog()">👍 Like({{ blog?.likes ?? 0 }})</button>
+    <button class="btn btn-danger" (click)="dislikeBlog()">👎 Dislike ({{ blog?.dislikes ?? 0 }})</button>
+  </div>
+  
+  <div *ngIf="!blog" class="text-center">
+    <p>Loading blog details...</p>
+  </div>
+</div>
+
+<div class="comments-section mt-4">
+  <h3>Comments</h3>
+  <div *ngIf="blog.comments && blog.comments.length > 0; else noComments">
+    <div *ngFor="let comment of blog.comments" class="comment">
+      <p><strong>{{ comment.user }}:</strong> {{ comment.comment }}</p>
+    </div>
+  </div>
+  <ng-template #noComments>
+    <p>No comments yet. Be the first to comment!</p>
+  </ng-template>
+
+  <div class="add-comment mt-3">
+    <textarea
+      [(ngModel)]="newComment"
+      placeholder="Write a comment..."
+      rows="3"
+      class="form-control"
+    ></textarea>
+    <button class="btn btn-primary mt-2" (click)="addComment()">Add Comment</button>
+  </div>
+</div>
+  <app-login
+  *ngIf="isLoginModalVisible"
+  [registerRoute]="registerRoute"
+  [loginContext]="loginContext"  
+  (closeModal)="closeLoginModal()"
+    (loginSuccess)="onLoginSuccess($event)"
+  ></app-login>
+
+
+ <app-footer></app-footer> 
+</div>
+
+ 

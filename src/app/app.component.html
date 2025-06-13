@@ -1,0 +1,60 @@
+<nav class="navbar">
+    <div class="navbar-content">
+      <h1 class="navbar-title">BlogOpedia</h1>
+      <div *ngIf="isHomePage" class="navbar-main">
+        <!-- Search Bar -->
+        <div class="navbar-search">
+          <input
+            type="text"
+            placeholder="Search blogs..."
+            [(ngModel)]="searchTerm"
+            (input)="onSearchTermChange(searchTerm)"
+            class="search-bar"
+          />
+        </div>
+  
+        <!-- Dropdowns -->
+        <div class="navbar-actions">
+          <select
+            [(ngModel)]="itemsPerPage"
+            (change)="changeItemsPerPage(itemsPerPage)"
+            class="items-per-page-dropdown"
+          >
+            <option *ngFor="let count of itemsPerPageOptions" [value]="count">
+              {{ count }}
+            </option>
+          </select>
+  
+          <select
+            [(ngModel)]="sortOrder"
+            (change)="onSortOrderChange(sortOrder)"
+            class="sort-dropdown"
+          >
+            <option value="newToOld">New to Old</option>
+            <option value="oldToNew">Old to New</option>
+          </select>
+        </div>
+      </div>
+
+
+     <!-- Conditional Rendering for Login/Register or Profile -->
+    <button *ngIf="!isLoggedIn" class="login-register-btn" (click)="openLoginModal('navbar')">
+      Login/Register
+    </button>
+    <div *ngIf="isLoggedIn" class="user-profile">
+      <img src="https://github.com/mdo.png" alt="User Avatar" width="40" height="40" class="rounded-circle me-2">
+      <span class="user-email">{{ loggedInUserEmail }}</span>
+      <button class="logout-btn" (click)="logout()">Logout</button>
+    </div>
+  </div>
+</nav>
+  
+<router-outlet></router-outlet>
+
+  <app-login
+  *ngIf="isLoginModalVisible"
+  [loginContext]="loginContext"
+  (closeModal)="closeLoginModal()"
+  (loginSuccess)="onLoginSuccess($event)"
+></app-login>
+  

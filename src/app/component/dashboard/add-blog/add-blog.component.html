@@ -1,0 +1,80 @@
+<div class="container mt-4">
+  <h1 class="text-center">{{ isEditMode ? 'Edit Your Blog' : 'Add Your Blog' }}</h1>
+  <form (ngSubmit)="onSubmit()" #blogForm="ngForm" enctype="multipart/form-data">
+ 
+    <div class="mb-3">
+      <label for="title" class="form-label">Blog Title</label>
+      <input
+        type="text"
+        id="title"
+        class="form-control"
+        name="title"
+        [(ngModel)]="blog.title"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="author" class="form-label">Author</label>
+      <input
+        type="text"
+        id="author"
+        class="form-control"
+        name="author"
+        [(ngModel)]="blog.author"
+        required
+        [readonly]="isEditMode" 
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="content" class="form-label">Blog Content</label>
+      <textarea
+        id="content"
+        class="form-control"
+        name="content"
+        [(ngModel)]="blog.content"
+        rows="5"
+        required
+      ></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="category" class="form-label">Category</label>
+      <select
+        id="category"
+        class="form-select"
+        name="category"
+        [(ngModel)]="blog.category"
+        required
+      >
+        <option value="" disabled>Select a category</option>
+        <option value="Technology">Technology</option>
+        <option value="Lifestyle">Lifestyle</option>
+        <option value="Education">Education</option>
+        <option value="Health">Sports</option>
+        <option value="Sports">Cook</option>
+        <option value="Travel">History</option>
+        <option value="Nature">Nature</option>
+        <option value="History">Geography</option>
+      </select>
+    </div>
+
+
+    <div class="mb-3">
+      <label for="imageURLs" class="form-label">Upload Images</label>
+      <input
+        type="file"
+        id="imageURLs"
+        class="form-control"
+        (change)="onFileSelected($event)"
+        multiple
+      />
+    </div>
+
+
+    <button type="submit" class="btn btn-primary" [disabled]="!blogForm.valid">
+      {{ isEditMode ? 'Update Blog' : 'Add Blog' }}
+    </button>
+  </form>
+</div>

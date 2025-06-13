@@ -1,0 +1,45 @@
+  <div *ngIf="isLoginModalVisible" class="custom-modal-overlay">
+    <div class="custom-modal">
+      <span class="close-btn" (click)="closeLoginModal()">&times;</span>
+      <h2>Login</h2>
+  
+      <form (ngSubmit)="login()">
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            [(ngModel)]="email"
+            name="email"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            [(ngModel)]="password"
+            name="password"
+            required
+          />
+        </div>
+  
+        <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+  
+        <div class="button-group">
+          <button type="button" class="cancel-btn" (click)="closeLoginModal()">Cancel</button>
+          <button type="submit" class="submit-btn">Login</button>
+        </div>
+      </form>
+      <div class="register-link">
+        <p>
+          No account? 
+          <a [routerLink]="registerRoute" class="register-btn" (click)="closeLoginModal()">Register</a>
+        </p>
+      </div>
+    </div>
+    </div>
+    

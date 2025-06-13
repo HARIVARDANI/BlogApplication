@@ -1,0 +1,33 @@
+<div class="container-fluid color p-0">
+    <div class="row m-0">
+        <div class="col-lg-2 col-md-4 p-0">
+            <div class="sidebar">
+            <div class="d-flex flex-column align-items-start pt-2 text-white min-vh-100">
+                <ul class="nav nav-pills flex-column align-items-start" id="menu">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link align-middle px-3">
+                            <i class="fs-4 bi-house"></i>
+                            <span class="ms-1 d-none d-sm-inline" style="color: white;">Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/dashboard/add-blog" class="nav-link px-3 align-middle">
+                            <i class="fs-4 bi-clock-history"></i>
+                            <span class="ms-1 d-none d-sm-inline" style="color: white;">Add Your Blogs</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/dashboard/my-works" class="nav-link px-3 align-middle">
+                            <i class="fs-4 bi-list-check"></i>
+                            <span class="ms-1 d-none d-sm-inline" style="color: white;">My-Works</span>
+                        </a>
+                    </li>
+                </ul>
+                <hr>
+            </div>
+        </div>
+    </div>
+  <div class="col-lg-10 col-md-8 p-4 main-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

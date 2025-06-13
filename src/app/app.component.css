@@ -1,0 +1,108 @@
+/* Navbar container */
+.navbar {
+  background-color: #3f51b5;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Navbar content layout */
+.navbar-content {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Title styling */
+.navbar-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Main section containing search bar and dropdowns */
+.navbar-main {
+  display: flex;
+  flex: 1;
+  justify-content: center; /* Center the search bar */
+  align-items: center;
+  gap: 20px; /* Add spacing between search bar and dropdowns */
+}
+
+/* Center the search bar */
+.navbar-search {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Search bar styling */
+.search-bar {
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  width: 100%;
+  max-width: 400px;
+  font-size: 14px;
+}
+
+/* Right section: Dropdowns and buttons */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 25px; /* Increased spacing between elements */
+}
+
+/* Dropdown styling */
+.sort-dropdown,
+.items-per-page-dropdown {
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sort-dropdown:hover,
+.items-per-page-dropdown:hover {
+  background-color: #f0f0f0;
+}
+
+/* Login/Register button styling */
+.login-register-btn {
+  padding: 8px 16px;
+  font-size: 14px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-register-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Logout button styling */
+.logout-btn {
+  background-color: #0056b3;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #b30009;
+}

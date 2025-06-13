@@ -1,0 +1,120 @@
+/* General container styling */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f4f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Title styling */
+h1.text-center {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 30px;
+  text-transform: capitalize;
+  letter-spacing: 1.2px;
+  text-align: center;
+}
+
+/* Blog card styling */
+.card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #0056b3;
+  margin-bottom: 15px;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+  line-height: 1.8;
+}
+
+p strong {
+  color: #444;
+  font-weight: 600;
+}
+
+/* Image styling */
+.img-thumbnail {
+  border-radius: 8px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.img-thumbnail:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Edit button styling */
+.btn-primary {
+  background-color: #0056b3;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 5px;
+  color: #fff;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #003d80;
+  transform: scale(1.05);
+}
+
+/* No blogs message styling */
+p.text-center {
+  font-size: 1.4rem;
+  color: #888;
+  margin-top: 30px;
+  font-style: italic;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  h1.text-center {
+    font-size: 2rem;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+  }
+
+  .card-text {
+    font-size: 0.95rem;
+  }
+
+  .btn-primary {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  .img-thumbnail {
+    width: 80px;
+  }
+}

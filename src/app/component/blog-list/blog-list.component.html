@@ -1,0 +1,34 @@
+<div class="blog-list">
+    <div *ngFor="let blog of displayedBlogs" class="blog-card">
+      <img 
+      *ngIf="blog.imageURLs && blog.imageURLs.length>0"
+      [src]="blog.imageURLs[0]"
+      alt="{{ blog.title }}" 
+      class="blog-image" />
+
+      <div class="blog-details">
+        <h2>{{ blog.title }}</h2>
+        <p>
+          {{ blog.content | slice: 0:50 }}...
+          <a [routerLink]="['/blog-detail', blog.id]" class="read-more">Read More</a>
+        </p>
+        <p><strong>Category:</strong> {{ blog.category }}</p>
+        <p><strong>Author:</strong> {{ blog.author }}</p>
+        <p><strong>Date:</strong> {{ blog.publicationDate | date }}</p>
+      </div>
+    </div>
+  </div>
+   
+<div class="pagination">
+  <button
+    *ngFor="let page of totalPages"
+    (click)="changePage(page)"
+    [class.active]="currentPage === page"
+  >
+    {{ page }}
+  </button>
+</div>
+
+<app-login *ngIf="isLoginModalVisible" (closeModal)="closeLoginModal()"></app-login>
+
+ <app-footer></app-footer> 

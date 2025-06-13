@@ -1,0 +1,42 @@
+<!-- <nav class="navbar">
+  <div class="navbar-content">
+
+    <h1 class="navbar-title">BlogOpedia</h1>
+
+    <div class="navbar-search">
+      <input
+        type="text"
+        placeholder="Search blogs..."
+        [(ngModel)]="searchTerm"
+        (input)="applyFilters()"
+        class="search-bar"
+      />
+    </div>
+
+    <div class="navbar-actions">
+      <select
+        [(ngModel)]="itemsPerPage"
+        (change)="itemsPerPageChange.emit(itemsPerPage)"
+        class="items-per-page-dropdown"
+      >
+        <option *ngFor="let count of itemsPerPageOptions" [value]="count">
+          {{ count }}
+        </option>
+      </select>
+
+
+      <select
+        [(ngModel)]="sortOrder"
+        (change)="applyFilters()"
+        class="sort-dropdown"
+      >
+        <option value="newToOld">New to Old</option>
+        <option value="oldToNew">Old to New</option>
+      </select>
+
+      <button class="login-register-btn" (click)="openLoginModal()">
+        Login/Register
+      </button>
+    </div>
+  </div>
+</nav> -->

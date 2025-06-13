@@ -1,0 +1,92 @@
+<div class="register-container">
+  <h2>Register To Add Your Blog....</h2>
+  <form #registerForm="ngForm"(ngSubmit)="register()">
+  
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        [(ngModel)]="email"
+        name="email"
+        required
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+        placeholder="Enter your email"
+        #emailField="ngModel"
+      />
+      <p *ngIf="emailField.invalid && emailField.touched" class="validation-error">
+        Please enter a valid email address.
+      </p>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Name</label>
+    <input
+        type="name"
+        id="name"
+        [(ngModel)]="name"
+        name="name"
+        placeholder="Enter your name"
+        #nameField="ngModel"
+      />
+    </div>
+
+    <!-- Password Field -->
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        [(ngModel)]="password"
+        name="password"
+        required
+        minlength="6"
+        placeholder="Enter your password"
+        #passwordField="ngModel"
+      />
+      <p *ngIf="passwordField.invalid && passwordField.touched" class="validation-error">
+        Password must be at least 6 characters long.
+      </p>
+    </div>
+
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password</label>
+      <input
+        type="password"
+        id="confirmPassword"
+        [(ngModel)]="confirmPassword"
+        name="confirmPassword"
+        required
+        placeholder="Confirm your password"
+        #confirmPasswordField="ngModel"
+      />
+      <p *ngIf="confirmPasswordField.touched && confirmPassword !== password" class="validation-error">
+        Passwords do not match.
+      </p>
+    </div>
+
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number</label>
+      <input
+        type="text"
+        id="phoneNumber"
+        [(ngModel)]="phoneNumber"
+        name="phoneNumber"
+        required
+        pattern="[0-9]{10}"
+        placeholder="Enter your phone number"
+        #phoneField="ngModel"
+      />
+      <p *ngIf="phoneField.invalid && phoneField.touched" class="validation-error">
+        Please enter a valid 10-digit phone number.
+      </p>
+    </div>
+
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+
+    <div class="button-group">
+      <button type="submit" class="submit-btn" [disabled]="registerForm.invalid">Register</button>
+      <button type="button" class="cancel-btn" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</div>
